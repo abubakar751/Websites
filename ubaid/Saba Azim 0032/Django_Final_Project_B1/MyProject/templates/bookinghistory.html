@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block childpage %}
+    <!--start heading-->
+<div class="row heading text-center py-3">
+    <div class="col-sm-6 mx-auto ">
+        <p class="fs-3"><b>Booking</b><b class="txt-color2"> History</b></p>
+        <hr/>
+    </div>
+</div>
+<!--end heading-->
+{% for s in data %}
+<div class="container">
+<div class="col-sm-1"></div>
+<!--booking history starts-->
+<div class="col-sm-10 mx-auto">
+    <div class="card text-center">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-sm-3">Booked on: {{s.date}}</div>
+                <div class="col-sm-3">Appointment on: {{s.reqdate}}</div>
+                <div class="col-sm-3">Proposed Payment: Rs.{{s.payment}} </div>
+                <div class="col-sm-3 float-end">Booking ID: {{s.providerid.id}}</div>
+            </div>
+        </div>
+        <div class="card-body mx-auto">
+            <h5 class="card-title">Provider: {{s.providerid.provider_name}}</h5>
+            <p class="card-text">Provider Address:{{s.address}} | {{s.city}} | {{s.pincode}} </p>
+        </div>
+        <div class="card-footer text-light my-3 bg-mycolor3 ">
+            <div class="row " style="...">
+            <div class="col-sm-6">Current Status: {{s.status}}</div>
+            <div class="col-sm-6">Provider Contact No.: {{s.providerid.provider_mobile}}</div>
+        </div>
+            </div>
+    </div>
+</div>
+<!--booking history ends-->
+<div class="col-sm-1"></div>
+    </div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block childpage %}
+<style>
+.form-control
+    {
+    height:50px;
+    }
+</style>
+    <!--start heading-->
+<div class="row heading text-center py-3">
+    <div class="col-sm-6 mx-auto ">
+        <p class="fs-3"><b>Contact</b><b class="txt-color2"> Us</b> <i class="fa-solid fa-phone txt-color2"></i></p>
+        <i> Let's connect to make you work easier.</i>
+    </div>
+</div>
+<!--end heading-->
+<!-- start form-->
+<div class="container">
+    <div class="col-sm-10 mx-auto">
+        <div class="row">
+            <div class="col-sm-7">
+                <form autocomplete="off" method="post">
+                    {% csrf_token %}
+                    Name<br/><input type="text" class="form-control shadow-lg mb-2 bg-body-tertiary rounded-0" name="name" placeholder="Enter your name..." required/>
+                    Email<br/><input type="email" class="form-control shadow-lg mb-2 bg-body-tertiary rounded-0" name="email" placeholder="Enter your email..." required/>
+                    Mobile<br/><input type="text" class="form-control shadow-lg mb-2 bg-body-tertiary rounded-0" name="mobile" placeholder="Enter your mobile..." required/>
+                    Message<br/><textarea class="form-control shadow-lg mb-2 bg-body-tertiary rounded-0" placeholder="Message" name="msg"></textarea><br/>
+                    <input type="submit" value="Save" class="form-control shadow-lg mb-2 rounded-0 bg-mycolor4 btn btn-outline-secondary text-light w-25"/>
+                </form>
+            </div>
+            <div class="col-sm-1"></div>
+        <div class="col-sm-4 bg-white rounded " >
+                <h4 class="mx-3 p-4" > <span style="border-bottom: 2px solid #0d6efd;">C</span><span style="border-bottom: 2px solid #FABC3F;">ontact</span> Info</h4>
+                <div class="ms-5">
+                    <span class="fs-5"><i class="fa-solid fa-location-dot text-primary"></i> <span style="border-bottom: 2px solid #FABC3F;">Address</span></span>
+                    <p class="my-2">Block-D, Sector-9, Indira nagar,<br> Lucknow, Uttar Pradesh, 226016</p> <br>
+                    <span class="fs-5"><i class="fa-solid fa-phone text-primary"></i> <span style="border-bottom: 2px solid #FABC3F;">Call Us</span></span>
+                    <p class="my-3">+91 7348242267<br>+91 7007123123</p>
+                    <span class="fs-5"><i class="fa-solid fa-envelope text-primary"></i> <span style="border-bottom: 2px solid #FABC3F;">Email Us</span></span>
+                    <p class="m-2">sabby@gmail.com</p>
+                    <p class="m-2">2320sabby@gmail.com</p>
+                </div>
+    </div>
+         <div class="row w-100 my-2" style="border: 2px solid #0d6efd;"></div>
+        </div>
+    </div>
+</div>
+<!-- end form-->
+<!--start map-->
+<div class="row heading text-center py-3">
+    <div class="col-sm-6 mx-auto ">
+        <p class="fs-3"><b>Find Us On</b><b class="txt-color2"> Google Map</b> <i class="fa-solid fa-location-dot txt-color2"></i></p>
+    </div>
+</div>
+<div class="row mb-5">
+    <div class="col-sm-10 mx-auto">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d7116.568736197609!2d80.96169454220191!3d26.894468806631963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1stechpile%20technology!5e0!3m2!1sen!2sin!4v1726582983257!5m2!1sen!2sin"  class="w-100" style="border:0;min-height:400px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+<!--end map-->
+{% endblock %}

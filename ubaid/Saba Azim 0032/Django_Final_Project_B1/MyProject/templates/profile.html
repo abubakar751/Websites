@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block childpage %}
+
+{% if not request.session.email %}
+<script>
+    alert('You have to Login First');
+    location.href='/login/';
+</script>
+{% endif %}
+
+{% for i in userinfo %}
+<!--start heading-->
+
+<div class="row m-3 ">
+    <div class="col-sm-5 mx-auto text-center ">
+        <p class="fs-3"><b>My </b><b class="txt-color2"> Profile </b> </p>
+        <p></p>
+        <hr/>
+    </div>
+</div>
+<!--end heading-->
+<div class="container-fluid mt-3">
+<div class="row">
+    <div class="col-sm-4 mx-auto p-2 shadow-lg">
+<div class="text-center">
+            <img src="../{{i.picture}}" class="img-fluid rounded-circle mx-auto border shadow-lg border-dark p-2" height="400px" width="400px"/>
+</div>
+            <h1 class="pt-3 fs-3 my-4 txt-color3 text-center">{{i.name}}</h1>
+        <a href="#" style="text-decoration:none;text-align:center;" ><p class="mb-5 text-center txt-color2">{{i.email}}</p></a>
+
+    </div>
+    <div class="col-sm-8">
+    <div class="card mt-4 px-4 border-0 shadow-lg">
+        <form method="post" enctype="multipart/form-data">
+                                   {% csrf_token %}
+            <input type="text" name="email" readonly required placeholder="Enter Your Email..." value="{{i.email}}" class="form-control mt-3"/>
+            <input type="text" name="name" required placeholder="Enter Your Name..." value="{{i.name}}" class="form-control mt-3"/>
+            <input type="text" name="mobile" required placeholder="Enter Your Mobile..." value="{{i.mobile}}" class="form-control mt-3"/>
+            <input type="password" name="password" required placeholder="Enter Your Password..." value="{{i.password}}" class="form-control mt-3"/>
+            <input type="text" name="city" required placeholder="Enter Your City..." value="{{i.city}}" class="form-control mt-3"/>
+            <input type="text" name="pincode" required placeholder="Enter Your Pincode..." value="{{i.pincode}}" class="form-control mt-3"/>
+            <input type="file" name="fu" required value="{{i.picture}}" class="form-control mt-3"/>
+            <textarea name="address" required placeholder="Enter Your Address..." class="form-control mt-3"></textarea>
+            <br/>
+            <button type="submit" class="btn btn-outline-secondary bg-mycolor4 text-light mb-2">Update Now</button>
+        </form>
+    </div>
+        </div>
+</div>
+</div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block childpage %}
+<style>
+    .form-control {
+        border: 1px solid #ced4da;
+        padding: 15px;
+        font-size: 1rem;
+    }
+    .form-control:focus {
+        border-color: #ff6f61;
+        box-shadow: none;
+    }
+    .btn-login {
+        transition: background-color 0.3s ease;
+    }
+    .login-container {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    .login-header {
+        font-size: 2rem;
+        color: #343a40;
+        font-weight: bold;
+    }
+    .login-form span {
+        font-size: 1.2rem;
+        color: #495057;
+    }
+    .login-form a {
+        color: #ff6f61;
+    }
+    .login-form a:hover {
+        color: #e65b4e;
+        text-decoration: underline;
+    }
+    .login-container .btn-submit {
+        padding: 12px;
+        font-size: 1.1rem;
+    }
+    @media (max-width: 576px) {
+        .form-control {
+            font-size: 0.9rem;
+            padding: 10px;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 10px;
+        }
+    }
+</style>
+<div class="row m-3">
+    <div class="col-sm-5 mx-auto text-center ">
+        <p class="fs-3"><b>Login </b><b class="txt-color2"> Here...</b> </p>
+        <i>Explore our great services. You won't be disappointed</i>
+        <hr/>
+    </div>
+</div>
+<div class="container-fluid py-0">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6 login-container">
+            <form autocomplete="off" method="post" class="login-form mt-2">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <span class="fs-5"><i class="fa-solid fa-envelope"></i> Email</span><br>
+                    <input type="email" name="email"
+                        class="form-control shadow-sm rounded-0 fs-5 userinput" placeholder="Enter your email"
+                        required />
+                </div>
+                <div class="mb-4">
+                    <span class="fs-5"><i class="fa-solid fa-lock"></i> Password</span><br>
+                    <input type="password" name="password"
+                        class="form-control shadow-sm rounded-0 fs-5 userinput" placeholder="Enter your password"
+                        required />
+                </div>
+                <a href="#" class="d-block text-end mb-3 ">Forgot password?</a>
+                <input type="submit" value="Login"
+                    class="form-control shadow-sm btn-login btn-submit btn-outline-secondary bg-mycolor4 text-light rounded-0 w-100">
+            </form>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+</div>
+    {% endblock %}

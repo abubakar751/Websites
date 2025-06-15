@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block childpage %}
+<div class="container">
+    <div class="row my-5">
+        <div class="col-sm-6">
+            <img src="{% static 'images/aboutus.png' %}" height="400" width="600" class="img-fluid"/>
+        </div>
+        <div class="col-sm-6 px-3">
+            <h1 class="my-3">About<b class="txt-color2"> Us</b></h1><hr/>
+            <p><b>This project belongs to Sabby </b></p>
+            <p>CityClave is your go-to solution for seamless and reliable home services. Our platform is designed to connect you with top-notch professionals who can handle a diverse range of tasks, from urgent repairs and routine maintenance to beauty treatments and thorough cleaning.<br/>
+At CityClave, we understand the importance of having trustworthy and skilled experts in your home. That's why we meticulously vet and train all our service providers to ensure that they deliver exceptional quality and reliability. Our user-friendly app and website make booking services a breeze, allowing you to select a time that fits your schedule with just a few taps.<br/>
+We pride ourselves on transparency, offering clear and upfront pricing with no hidden fees, so you know exactly what to expect. Plus, our customer review system provides genuine feedback from other users, helping you make informed decisions and choose the best professional for your needs.<br/>
+Experience the convenience and peace of mind that comes with CityClave—where quality service meets effortless accessibility.
+            </p>
+            <a class="btn btn-outline-secondary bg-mycolor4 text-light" href="#">Know More...</a>
+        </div>
+    </div>
+    <div class="row my-5">
+        <div class="col-sm-6 px-3">
+            <h1 class="my-3">Our<b class="txt-color2"> Vision</b></h1>
+            <hr/>
+At City Clave, our vision is to redefine urban living by creating a seamless blend of convenience, quality, and community. We believe that every city dweller deserves access to reliable services that enhance their everyday life.
+              <p ><b>  Key Elements of Our Vision:</b></p>
+            <li class="txt-color2">Empowerment through Convenience</li>
+We envision a world where individuals can easily access essential services, freeing up time for what truly matters. Our platform connects customers with trusted professionals, simplifying daily tasks and enhancing life’s experiences.
+<br/><li class="txt-color2">Quality and Trust</li>
+Our commitment to quality is unwavering. We strive to set the highest standards in service delivery, ensuring that every interaction builds trust and satisfaction. Each professional in our network is thoroughly vetted and trained to provide top-notch service.
+<br/><li class="txt-color2">Community-Centric Approach</li>
+We believe in the power of community. Our vision is to foster strong local connections by supporting small businesses and skilled professionals. By prioritizing community engagement, we aim to create a vibrant ecosystem where everyone thrives.
+<br/><li class="txt-color2">Sustainability and Innovation</li>
+Urban living must be sustainable. We are dedicated to implementing eco-friendly practices and innovative solutions that minimize our environmental impact. Our vision includes leveraging technology to create smarter, more sustainable urban environments.
+<br/><li class="txt-color2">Enhancing Quality of Life</li>
+Ultimately, our goal is to enhance the quality of life for urban residents. By providing accessible services that cater to diverse needs, we aim to create a happier, healthier, and more fulfilling urban experience.
+<br/><li class="txt-color2">Join Us on Our Journey</li>
+As we work towards this vision, we invite you to join us. Whether you’re a customer seeking services or a professional looking to make a difference, together we can build a better urban future.</p>
+            <a class="btn btn-outline-secondary bg-mycolor4 text-light" href="#">Know More...</a>
+        </div>
+        <div class="col-sm-6">
+            <img src="{% static 'images/vision.png' %}" height="400" width="600" class="img-fluid"/>
+        </div>
+    </div>
+    <div class="row heading text-center py-3">
+    <div class="col-sm-6 mx-auto ">
+        <p class="fs-3"><b>Our</b><b class="txt-color2"> Achievements</b> <i class="fa-solid fa-trophy txt-color2"></i></p>
+        <hr/>
+    </div>
+</div>
+    <div class="row mb-4">
+        <div class="col-sm-3 text-center mb-4">
+            <i class="fa-solid fa-screwdriver-wrench fs-3 ico p-3 text-primary"></i>
+            <h2 class="mt-3 txt-color2">1000+ </h2>
+            <h5 class="txt-color3">Successful Services Delivered.</h5>
+        </div>
+        <div class="col-sm-3 text-center mb-4">
+            <i class="fa-solid fa-face-smile fs-3 ico p-3 text-warning"></i>
+            <h2 class="mt-3 txt-color2">500+ </h2>
+            <h5 class="txt-color3">Happy Customers</h5>
+        </div>
+        <div class="col-sm-3 text-center mb-4">
+            <i class="fa-solid fa-star fs-3 ico p-3 text-warning"></i>
+            <h2 class="mt-3 txt-color2">2000+ </h2>
+            <h5 class="txt-color3">5 Star Rating</h5>
+        </div>
+        <div class="col-sm-3 text-center mb-4">
+            <i class="fa-solid fa-registered fs-3 ico p-3 text-success"></i>
+            <h2 class="mt-3 txt-color2">5000+ </h2>
+            <h5 class="txt-color3">Services Registered</h5>
+        </div>
+    </div>
+</div>
+{% endblock %}

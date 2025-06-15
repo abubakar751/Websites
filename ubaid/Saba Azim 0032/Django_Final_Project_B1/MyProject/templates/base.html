@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/all.min.css' %}" rel="stylesheet"/>
+    <style>
+        :root
+        {
+        --bgcolor1:#003135;
+        --bgcolor2:#964734;
+        --bgcolor3:#024950;
+        --bgcolor4:#0FA4AF;
+        }
+        .bg-mycolor1
+        {
+        background:var(--bgcolor1);
+        }
+        .bg-mycolor2
+        {
+        background:var(--bgcolor2);
+        }
+        .bg-mycolor3
+        {
+        background:var(--bgcolor3);
+        }
+        .bg-mycolor4
+        {
+        background:var(--bgcolor4);
+        }
+        .txt-color1
+        {
+        color:var(--bgcolor1);
+        }
+        .txt-color2
+        {
+        color:var(--bgcolor2);
+        }
+        .txt-color3
+        {
+        color:var(--bgcolor3);
+        }
+        .txt-color4
+        {
+        color:var(--bgcolor4);
+        }
+        .t1 a
+        {
+        text-decoration:none;
+        color:white;
+        }
+        .t1
+        {
+        font-size:14px;
+        }
+        .ic
+        {
+        border:1px solid white;
+        height:20px;
+        width:20px;
+        text-align:center;
+        line-height:20px;
+        border-radius:1px;
+        transition:all .5s;
+        }
+        .ic:hover
+        {
+        border:1px solid var(--bgcolor3);
+        color:var(--bgcolor3);
+        transform:rotate(360deg);
+        transition:all .5s;
+        }
+        #menu
+        {
+        background:transparent !important;
+        }
+        #menu ul li a
+        {
+        color:white;
+        }
+        .ufooter
+        {
+        min-height:300px;
+        background:#1E201E;
+        }
+        .bfooter
+        {
+        background:#1E201E;
+        color:white;
+        text-align:center;
+        margin-top:2px;
+        }
+        .fr
+        {
+        color:white;
+        }
+        .imgzoom
+        {
+        transition:all ease 1s;
+        }
+        .imgzoom:hover
+        {
+        transform:scale(1.1);
+        transition:all ease 1s;
+        }
+        .ico
+        {
+        border-radius:50%;
+        border:1px solid black;
+
+        }
+    </style>
+</head>
+<body>
+<!-- start topbar-->
+<div class="container-fluid " >
+    <div class="row t1 bg-mycolor2 text-light text-center py-1">
+        <div class="col-sm-3">
+            <a href="/faqs/">FAQs</a>  |
+            <a href="/about/">About Us</a>  |
+            <a href="/contact/">Contact and Support</a>
+        </div>
+        <div class="col-sm-3">
+            <i class="fa-solid fa-phone ic"></i>
+            +91 9026xxxxx
+        </div>
+        <div class="col-sm-3">
+            <i class="fa-solid fa-envelope ic"></i>
+            {{request.session.email}}
+        </div>
+        <div class="col-sm-3">
+            <a href="#"><i class="fa-brands fa-facebook ic"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter ic"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin ic"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram ic"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube ic"></i></a>
+        </div>
+    </div>
+    <div class="row t2 py-2">
+        <div class="col-sm-3 fs-2 ps-5">
+            <i class="fa-solid fa-city txt-color2 "></i>
+            <b style="font-size:30px;" class="txt-color3">City</b><b class="txt-color4" style="font-size:30px;">Clap</b>
+        </div>
+        <div class="col-sm-3 text-center">
+            <i class="fas fa-location-arrow text-danger fs-5"></i>
+            <b class="txt-color4">Office Address </b><br/>
+            <p>
+            <b>222610,Indira Nagar Lucknow <br />
+              Uttar Pradesh</b>
+            </p>
+        </div>
+        <div class="col-sm-3 text-center">
+            <i class="fas fa-clock text-warning"></i>
+            <b class="txt-color4">Working</b><b class="txt-color4"> Hours </b><br/>
+          <p><b>Monday-Friday 9:00-18:00</b></p>
+        </div>
+        <div class="col-sm-3 text-end pe-5 pt-2">
+            {% if not request.session.email %}
+            <img src="{% static 'images/urbanclap023.jpg' %}" height="50px" width="50px" style="border-radius:50%;"/> &nbsp;
+            {% else %}
+            <img src="/{{request.session.picture}}" height="50px" width="50px" style="border-radius:50%;"/> &nbsp;
+            <b>Welcome, {{request.session.name}}</b></div>
+        {% endif %}
+    </div>
+    <div class="row menu bg-mycolor1" style="min-height:40px;">
+        <div class="col-sm-1"></div>
+        <!-- end topbar-->
+        <!-- start menu -->
+        <div class="col-sm-10">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary p-0" id="menu">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+
+          <a class="nav-link active" aria-current="page" href="/home/">
+              <i class="fa-solid fa-house"></i>
+              Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/allservices/">
+              <i class="fa-solid fa-arrow-right"></i>
+              Book Services</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/about/">
+              <i class="fa-solid fa-circle-info"></i>
+              About Us</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/register/">
+              <i class="fa-regular fa-registered"></i>
+              Registration</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/faqs/">
+              <i class="fa-solid fa-question"></i>
+              FAQs</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/contact/">
+              <i class="fa-solid fa-phone"></i>
+              Contact Us</a>
+        </li>
+          {% if not request.session.email %}
+          <li class="nav-item">
+          <a class="nav-link" href="/login/">
+              <i class="fa-solid fa-circle-user"></i>
+              Login</a>
+        </li>
+          {% else %}
+          <li class="nav-item">
+          <a class="nav-link" href="/bookinghistory/">
+              <i class="fa-solid fa-clock-rotate-left"></i>
+              Booking History</a>
+        </li>
+
+          <li class="nav-item">
+          <a class="nav-link" href="/profile/">
+              <i class="fa-solid fa-circle-user"></i>
+              My Profile</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/logout/">
+              <i class="fa-solid fa-power-off"></i>
+              Log Out</a>
+        </li>
+          {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+        </div>
+            <!-- end menu -->
+        <div class="col-sm-1"></div>
+    </div>
+    <!--start slider-->
+    <div class="row slider" >
+        <div class="col-sm-12 " style="min-height:500px;">
+            {% block childpage %}
+
+            {% endblock %}
+        </div>
+    </div>
+    <!--end slider-->
+    <!---start footer-->
+            <div class="row ufooter">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-2 fr"><br/>
+                    <h4 class="txt-light">Categories</h4>
+                    <hr style="background-color: white; width:80px; height: 2px;"/>
+                    <li style="list-style-type:none;"><i class="fa-solid fa-fire"></i> Electrician</li>
+                    <li style="list-style-type:none;"><i class="fa-solid fa-fire"></i> Gardening</li>
+                    <li style="list-style-type:none;"><i class="fa-solid fa-fire"></i> Beauty</li>
+                    <li style="list-style-type:none;"><i class="fa-solid fa-fire"></i> Repairing</li>
+                </div>
+                <div class="col-sm-2 fr"><br/>
+                    <h4 class="txt-light">Quick Links</h4>
+                    <hr style="background-color: white; width:80px; height: 2px;"/>
+                    <a href="/about/" style="text-decoration:none; color:white;"><li style="list-style-type:none;"><i class="fa-solid fa-fire"></i> About Us</li></a>
+                    <a href="/contact/" style="text-decoration:none; color:white;"><li style="list-style-type:none;"><i class="fa-solid fa-fire"></i> Contact Us</li></a>
+                    <a href="/faqs/" style="text-decoration:none; color:white;"><li style="list-style-type:none;"><i class="fa-solid fa-fire"></i> FAQ</li></a>
+                    <a href="#" style="text-decoration:none; color:white;"><li style="list-style-type:none;"><i class="fa-solid fa-fire"></i> Blog</li></a>
+                </div>
+                <div class="col-sm-2 fr"><br/>
+                    <h4 class="txt-light">Contact Us</h4>
+                    <hr style="background-color: white; width:80px; height: 2px;"/>
+                    <a href="/contact/" style="text-decoration:none; color:white;"><li style="list-style-type:none;"><i class="fa-solid fa-location-dot"></i> Techpile Technology,Tedhi  Pulia</li></a>
+                    <li style="list-style-type:none;"><i class="fa-solid fa-phone"></i> 546382473</li>
+                    <li style="list-style-type:none;"><i class="fa-solid fa-envelope"></i> sabby@gmail.com</li>
+                </div>
+                <div class="col-sm-2 fr"><br/>
+                    <h4 class="txt-light">Social Links</h4>
+                    <hr style="background-color: white; width:80px; height: 2px; "/>
+                    <li style="list-style-type:none;">
+                        <a href="#" style="text-decoration:none; color:white;"><i class="fa-brands fa-facebook "></i></a> &nbsp;
+                        <a href="#" style="text-decoration:none; color:white;"><i class="fa-brands fa-instagram"> </i></a>
+                    </li>
+                    <li style="list-style-type:none;"></i>
+                        <a href="https://play.google.com/store/games?device=windows"> <img src="{% static 'images/googleplay.png' %}" class="img-fluid" style="height:30px"/></a><br/>
+                        <a href="https://www.apple.com/app-store/"> <img src="{% static 'images/appstore.png' %}" class="img-fluid" style="height:30px"/></a>
+                    </li>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="row bfooter py-2">
+                <div class="col-sm-6"><b class="txt-color4">Developed By :</b> Saba Azim</div>
+                <div class="col-sm-6"><b class="txt-color4">Copyright to &copy;</b> <a href="https://www.techpile.in/" style="text-decoration:none; color:white;"> Techpile Technology Pvt. Ltd.</a></div>
+            </div>
+        </div>
+<!---end footer-->
+<script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+</body>
+</html>
