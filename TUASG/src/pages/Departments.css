@@ -1,0 +1,15 @@
+.urdu-font {
+  font-family: 'Noori Nastaliq', 'Noto Nastaliq Urdu', serif;
+  font-size: 1.2em; /* Slightly larger than regular text */
+  line-height: 2;
+  direction: rtl;
+  text-align: right;
+}
+
+.urdu-font-small {
+  font-family: 'Noori Nastaliq', 'Noto Nastaliq Urdu', serif;
+  font-size: 1em;
+  line-height: 1.8;
+  direction: rtl;
+  text-align: right;
+}
