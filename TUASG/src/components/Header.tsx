@@ -1,15 +1,13 @@
-// Header.tsx
+// src/components/Header.tsx
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Globe, Moon, Sun, ChevronDown, ChevronUp } from 'lucide-react';
+import { Menu, X, Globe, ChevronDown, ChevronUp } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { useTheme } from '../contexts/ThemeContext';
 
 const Header: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
   const { language, setLanguage } = useLanguage();
-  const { theme, toggleTheme } = useTheme();
   const location = useLocation();
 
   useEffect(() => {
@@ -37,86 +35,113 @@ const Header: React.FC = () => {
     { name: language === 'en' ? 'Plans' : 'منصوبے', href: '/plans' },
     {
       name: language === 'en' ? 'Needs & Requirements' : 'ضروریات و تقاضے',
-      href: '/needs'
+      href: '/needs',
     },
     { name: language === 'en' ? 'Testimonials' : 'تعریفات و تاثرات', href: '/testimonials' },
-
     { name: language === 'en' ? 'Contact' : 'رابطہ', href: '/contact' },
   ];
 
   const toggleLanguage = () => {
     setLanguage(language === 'en' ? 'ur' : 'en');
-    // Close sidebar when switching languages to prevent layout issues
     setIsSidebarOpen(false);
   };
 
-  // Always open sidebar from left in both RTL and LTR
-  const sidebarPosition = 'left-0';
-  const sidebarTransform = isSidebarOpen ? 'translate-x-0' : '-translate-x-full';
+  const isActive = (href: string) => {
+    return location.pathname === href;
+  };
+
+  const isChildActive = (children: { href: string }[] = []) => {
+    return children.some(child => location.pathname.startsWith(child.href));
+  };
 
   return (
     <>
       <header className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`flex justify-between items-center py-4 ${language === 'ur' ? 'flex-row-reverse' : ''}`}>
-            {/* Logo */}
+          <div className={`flex justify-between items-center py-3 ${language === 'ur' ? 'flex-row-reverse' : ''}`}>
+            {/* Logo with full organization name */}
             <Link
               to="/"
-              className="flex items-center space-x-3 rtl:space-x-reverse"
+              className="flex items-center space-x-3 rtl:space-x-reverse group"
               dir={language === 'ur' ? 'rtl' : 'ltr'}
+              aria-label={language === 'en' ? 'Home' : 'ہوم'}
             >
-              <div className="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden border-2 border-emerald-600 shadow-md">
-                <img src="/logo.jpg" alt="Logo" className="w-full h-full object-cover" />
+              <div className="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden border-2 border-emerald-500">
+                <img 
+                  src="/logo.jpg" 
+                  alt={language === 'en' ? 'Tanzeem Ulma Logo' : 'تنظیم العلماء لوگو'} 
+                  className="w-full h-full object-cover" 
+                  loading="lazy"
+                />
               </div>
-              <div className="hidden md:block leading-tight">
-                <h1 className="font-bold text-lg md:text-xl text-emerald-800 dark:text-emerald-400">
-                  {language === 'en' ? 'Tanzeem Ulma' : 'تنظیم العلماء'}
+              <div className="leading-tight">
+                <h1 className="font-bold text-lg md:text-xl text-emerald-800 dark:text-emerald-300">
+                  {language === 'en' ? 'Tanzeem Ulma E Ahle Sunnat' : 'تنظیم العلماء اہل سنت'}
                 </h1>
                 <p className="text-xs md:text-sm text-gray-500 dark:text-gray-300">
-                  {language === 'en' ? 'Ahle Sunnat Wal Jamaat' : 'اہل سنت والجماعت'}
+                 
                 </p>
               </div>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-2 lg:space-x-4 rtl:space-x-reverse">
-              {navigation.map((item) =>
-                item.children ? (
-                  <div key={item.name} className="relative group">
-                    <button
-                      className={`px-3 py-2 lg:px-4 rounded-full text-sm font-medium flex items-center space-x-1 rtl:space-x-reverse transition-all ${location.pathname === item.href
+            <nav className="hidden md:flex items-center space-x-1 lg:space-x-2 rtl:space-x-reverse">
+              {navigation.map((item) => (
+                <div key={item.name} className="relative group">
+                  {item.children ? (
+                    <>
+                      <div className="flex items-center">
+                        <Link
+                          to={item.href}
+                          className={`px-3 py-2 rounded-full text-sm font-medium transition-all ${
+                            isActive(item.href) || isChildActive(item.children)
+                              ? 'bg-gradient-to-r from-emerald-600 to-emerald-400 text-white shadow'
+                              : 'text-gray-700 dark:text-gray-200 hover:text-emerald-600 hover:bg-emerald-100 dark:hover:bg-gray-700'
+                          }`}
+                        >
+                          {item.name}
+                        </Link>
+                        <button 
+                          className="p-1 text-gray-700 dark:text-gray-200 hover:text-emerald-600"
+                          aria-label={language === 'en' ? 'Toggle submenu' : 'ذیلی مینو کو ٹوگل کریں'}
+                        >
+                          <ChevronDown className="w-4 h-4" />
+                        </button>
+                      </div>
+                      <div
+                        className={`absolute ${language === 'ur' ? 'right-0' : 'left-0'} mt-1 w-56 bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-40`}
+                        role="menu"
+                      >
+                        {item.children.map((subItem) => (
+                          <Link
+                            key={subItem.href}
+                            to={subItem.href}
+                            className={`block px-4 py-2 text-sm ${
+                              isActive(subItem.href)
+                                ? 'bg-emerald-100 dark:bg-gray-700 text-emerald-800 dark:text-white'
+                                : 'text-gray-700 dark:text-gray-200 hover:bg-emerald-50 dark:hover:bg-gray-700'
+                            }`}
+                            role="menuitem"
+                          >
+                            {subItem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </>
+                  ) : (
+                    <Link
+                      to={item.href}
+                      className={`px-3 py-2 rounded-full text-sm font-medium transition-all ${
+                        isActive(item.href)
                           ? 'bg-gradient-to-r from-emerald-600 to-emerald-400 text-white shadow'
                           : 'text-gray-700 dark:text-gray-200 hover:text-emerald-600 hover:bg-emerald-100 dark:hover:bg-gray-700'
-                        }`}
-                    >
-                      <span>{item.name}</span>
-                      <ChevronDown className="w-4 h-4" />
-                    </button>
-                    <div className={`absolute ${language === 'ur' ? 'right-0' : 'left-0'} top-full mt-2 w-48 bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200 z-40`}>
-                      {item.children.map((subItem) => (
-                        <Link
-                          key={subItem.href}
-                          to={subItem.href}
-                          className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-emerald-50 dark:hover:bg-gray-700"
-                        >
-                          {subItem.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                ) : (
-                  <Link
-                    key={item.href}
-                    to={item.href}
-                    className={`px-3 py-2 lg:px-4 rounded-full text-sm font-medium transition-all duration-300 ${location.pathname === item.href
-                        ? 'bg-gradient-to-r from-emerald-600 to-emerald-400 text-white shadow'
-                        : 'text-gray-700 dark:text-gray-200 hover:text-emerald-600 hover:bg-emerald-100 dark:hover:bg-gray-700'
                       }`}
-                  >
-                    {item.name}
-                  </Link>
-                )
-              )}
+                    >
+                      {item.name}
+                    </Link>
+                  )}
+                </div>
+              ))}
             </nav>
 
             {/* Controls */}
@@ -129,13 +154,7 @@ const Header: React.FC = () => {
                 <Globe className="w-4 h-4" />
                 <span className="text-sm">{language === 'en' ? 'اردو' : 'EN'}</span>
               </button>
-              <button
-                onClick={toggleTheme}
-                className="p-2 rounded-full border border-gray-300 text-gray-600 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-                aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
-              >
-                {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
-              </button>
+            
               <button
                 onClick={() => setIsSidebarOpen(true)}
                 className="md:hidden p-2 rounded-full text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -148,69 +167,115 @@ const Header: React.FC = () => {
         </div>
       </header>
 
-      {/* Mobile Sidebar - Always opens from left */}
+      {/* Mobile Sidebar */}
       <div
-        className={`fixed top-0 ${sidebarPosition} h-full w-64 bg-white dark:bg-gray-900 shadow-lg z-50 transform ${sidebarTransform} transition-transform duration-300 ease-in-out`}
+        className={`fixed inset-y-0 ${language === 'ur' ? 'right-0' : 'left-0'} w-full max-w-xs bg-white dark:bg-gray-900 shadow-xl z-50 transform ${
+          isSidebarOpen ? 'translate-x-0' : language === 'ur' ? 'translate-x-full' : '-translate-x-full'
+        } transition-transform duration-300 ease-in-out`}
         dir={language === 'ur' ? 'rtl' : 'ltr'}
+        aria-modal="true"
+        role="dialog"
       >
         <div className="flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-700">
-          <h2 className="text-lg font-bold text-emerald-700 dark:text-emerald-400">
-            {language === 'en' ? 'Menu' : 'مینو'}
-          </h2>
+          <div className="flex items-center space-x-3 rtl:space-x-reverse">
+            <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-emerald-500">
+              <img 
+                src="/logo.jpg" 
+                alt={language === 'en' ? 'Tanzeem Ulma Logo' : 'تنظیم العلماء لوگو'} 
+                className="w-full h-full object-cover" 
+              />
+            </div>
+            <div>
+              <h2 className="text-lg font-bold text-emerald-700 dark:text-emerald-300">
+                {language === 'en' ? 'Tanzeem Ulma E Ahle Sunnat' : 'تنظیم العلماء اہل سنت'}
+              </h2>
+              <p className="text-xs text-gray-500 dark:text-gray-300">
+               
+              </p>
+            </div>
+          </div>
           <button
             onClick={() => setIsSidebarOpen(false)}
-            className="text-gray-500 dark:text-gray-200"
+            className="text-gray-500 dark:text-gray-200 hover:text-emerald-600 dark:hover:text-emerald-400"
             aria-label="Close menu"
           >
             <X className="w-6 h-6" />
           </button>
         </div>
-        <div className="flex flex-col p-4 space-y-2">
+        <nav className="overflow-y-auto h-[calc(100%-60px)] p-4 space-y-1">
           {navigation.map((item) => (
             <div key={item.name}>
               {item.children ? (
                 <>
-                  <button
-                    onClick={() => setExpandedMenu(expandedMenu === item.name ? null : item.name)}
-                    className="w-full flex justify-between items-center px-4 py-2 text-left text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-emerald-50 dark:hover:bg-gray-800 rounded"
-                  >
-                    {item.name}
-                    {expandedMenu === item.name ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                  </button>
-                  {expandedMenu === item.name &&
-                    item.children.map((subItem) => (
+                  <div className="flex flex-col">
+                    <div className="flex items-center justify-between">
                       <Link
-                        key={subItem.href}
-                        to={subItem.href}
+                        to={item.href}
                         onClick={() => setIsSidebarOpen(false)}
-                        className="block px-6 py-2 text-sm text-gray-600 dark:text-gray-300 hover:bg-emerald-100 dark:hover:bg-gray-700 rounded"
+                        className={`px-4 py-3 text-base font-medium rounded-lg flex-grow ${
+                          isActive(item.href) || isChildActive(item.children)
+                            ? 'bg-emerald-100 dark:bg-gray-700 text-emerald-800 dark:text-white'
+                            : 'text-gray-700 dark:text-gray-200 hover:bg-emerald-50 dark:hover:bg-gray-800'
+                        }`}
                       >
-                        {subItem.name}
+                        {item.name}
                       </Link>
-                    ))}
+                      <button
+                        onClick={() => setExpandedMenu(expandedMenu === item.name ? null : item.name)}
+                        className="p-2 text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400"
+                        aria-expanded={expandedMenu === item.name}
+                      >
+                        {expandedMenu === item.name ? (
+                          <ChevronUp className="w-4 h-4" />
+                        ) : (
+                          <ChevronDown className="w-4 h-4" />
+                        )}
+                      </button>
+                    </div>
+                    {expandedMenu === item.name && (
+                      <div className="pl-4 space-y-1">
+                        {item.children.map((subItem) => (
+                          <Link
+                            key={subItem.href}
+                            to={subItem.href}
+                            onClick={() => setIsSidebarOpen(false)}
+                            className={`block px-4 py-2 text-sm rounded-lg ${
+                              isActive(subItem.href)
+                                ? 'bg-emerald-100 dark:bg-gray-700 text-emerald-800 dark:text-white'
+                                : 'text-gray-600 dark:text-gray-300 hover:bg-emerald-50 dark:hover:bg-gray-800'
+                            }`}
+                          >
+                            {subItem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </>
               ) : (
                 <Link
                   to={item.href}
                   onClick={() => setIsSidebarOpen(false)}
-                  className={`block px-4 py-2 text-base font-medium rounded ${location.pathname === item.href
+                  className={`block px-4 py-3 text-base font-medium rounded-lg ${
+                    isActive(item.href)
                       ? 'bg-emerald-100 dark:bg-gray-700 text-emerald-800 dark:text-white'
                       : 'text-gray-700 dark:text-gray-200 hover:bg-emerald-50 dark:hover:bg-gray-800'
-                    }`}
+                  }`}
                 >
                   {item.name}
                 </Link>
               )}
             </div>
           ))}
-        </div>
+        </nav>
       </div>
 
       {/* Overlay */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-30 z-40"
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 backdrop-blur-sm"
           onClick={() => setIsSidebarOpen(false)}
+          aria-hidden="true"
         />
       )}
     </>

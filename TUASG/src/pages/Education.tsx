@@ -261,7 +261,7 @@ const Education: React.FC = () => {
         className="relative py-20 bg-gradient-to-r from-indigo-800 to-indigo-600 text-white overflow-hidden"
       >
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[url('/images/islamic-pattern.png')] bg-repeat"></div>
+          <div className="absolute inset-0 bg-[url('/image2.jpeg')] bg-repeat"></div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center max-w-4xl mx-auto">
@@ -303,7 +303,7 @@ const Education: React.FC = () => {
               <div className="bg-indigo-100 rounded-2xl p-6 shadow-lg">
                 <div className="aspect-w-16 aspect-h-9">
                   <img 
-                    src="/images/islamic-education.jpg" 
+                    src="/image2.jpeg" 
                     alt="Islamic Education" 
                     className="rounded-lg object-cover w-full h-full"
                   />

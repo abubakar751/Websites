@@ -245,7 +245,7 @@ const DarulQaza: React.FC = () => {
               <div className="bg-emerald-100 rounded-2xl p-6 shadow-lg">
                 <div className="aspect-w-16 aspect-h-9">
                   <img 
-                    src="/images/darul-qaza-courtroom.jpg" 
+                    src="/p1.jpg" 
                     alt="Darul Qaza Proceedings" 
                     className="rounded-lg object-cover w-full h-full"
                   />

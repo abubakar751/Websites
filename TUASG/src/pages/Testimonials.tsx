@@ -14,7 +14,7 @@ const Testimonials = () => {
         id: 1,
         name: "Maulana Khalid Saifullah Rahmani",
         title: "President, All India Muslim Personal Law Board",
-        quote: "I had the opportunity to observe the activities here, especially to review the system of Darul Qaza. I was very pleased and realized that this institution is rendering a great and beneficial service with lofty ambitions. May Allah grant it continued success.",
+        quote: "I had the opportunity to observe the activities here, especially to review the system of Darul Qaza. I was very pleased and realized that this institution is rendering a great and beneficial service with lofty ambitions. I pray that Allah grants it continued success.",
         image: "/rahmani.jpg"
       },
       {
@@ -22,35 +22,28 @@ const Testimonials = () => {
         name: "Maulana Muhammad Yamin Qasmi",
         title: "Preacher, Darul Uloom Deoband",
         quote: "Listening to the performance and religious services of this Tanzeem gave me immense spiritual joy. Undoubtedly, in this era of trials, ignorance, and irreligiousness, the establishment of such an organization is a commendable and praiseworthy step.",
-        image: "/qasmi.jpg"
+        image: "/qasmi.jpeg"
       },
       {
         id: 3,
         name: "Maulana Shah Alam Gorakhpuri",
         title: "Teacher & Deputy Administrator, All India Majlis Tahaffuz Khatm-e-Nubuwwat",
         quote: "MashaAllah, the Tanzeem is also actively aware of the threats posed by apostasy-related fitnas and is supported by the scholars of truth. May Allah grant it further progress, acceptance, and widespread benefit.",
-        image: "/images/scholars/gorakhpuri.jpg"
+        image: "/gorakhpuri.jpeg"
       },
       {
         id: 4,
         name: "Qazi Qasim Muzaffarpuri",
         title: "Former Shariah Judge, Darul Qaza, Imarat-e-Shariah, Phulwari Sharif, Patna",
         quote: "I was also taken on a tour of the Darul Qaza. I had the opportunity to go through many case files and their rulings. MashaAllah, the judgments were well-reasoned, and the proceedings were thorough.",
-        image: "/images/scholars/muzaffarpuri.jpg"
+        image: "/muzaffarpuri.jpeg"
       },
       {
         id: 5,
         name: "Maulana Obaidullah Al-Asa'di",
         title: "Sheikh-ul-Hadith, Jamia Arabia Hathoura, Banda",
         quote: "By the grace of Allah, this Darul Qaza has been functioning effectively for the past several years in this densely populated Muslim area. The average number of cases handled is also notable. May Allah increase its benefit and reach.",
-        image: "/images/scholars/al-asaadi.jpg"
-      },
-      {
-        id: 6,
-        name: "Maulana Nematullah Azmi",
-        title: "Principal, Madrasa Arabia Qasmia, Ghosi",
-        quote: "I have observed the working of this Darul Qaza closely. The cases are decided with justice and fairness, and the judgments are based on authentic Islamic jurisprudence. This is a much-needed service for the Muslim community.",
-        image: "/images/scholars/azmi.jpg"
+        image: "/asadi.jpeg"
       }
     ],
     ur: [
@@ -58,7 +51,7 @@ const Testimonials = () => {
         id: 1,
         name: "مولانا خالد سیف اللہ رحمانی",
         title: "صدر، آل انڈیا مسلم پرسنل لاء بورڈ",
-        quote: "مجھے یہاں کی سرگرمیوں کا مشاہدہ کرنے کا موقع ملا، خاص طور پر دارالقضاء کے نظام کا جائزہ لینے کا۔ میں بہت خوش ہوا اور محسوس کیا کہ یہ ادارہ بلند عزائم کے ساتھ ایک عظیم اور مفید خدمت انجام دے رہا ہے۔ اللہ اسے مزید کامیابی عطا فرمائے۔",
+        quote: "مجھے یہاں کی سرگرمیوں کا مشاہدہ کرنے کا موقع ملا، خاص طور پر دارالقضاء کے نظام کا جائزہ لینے کا۔ میں بہت خوش ہوا اور محسوس کیا کہ یہ ادارہ بلند عزائم کے ساتھ عظیم اور مفید خدمت انجام دے رہا ہے۔ میں دعا گو ہوں کہ اللہ اسے مسلسل کامیابی عطا فرمائے۔",
         image: "/rahmani.jpg"
       },
       {
@@ -66,35 +59,28 @@ const Testimonials = () => {
         name: "مولانا محمد یامین قاسمی",
         title: "واعظ، دارالعلوم دیوبند",
         quote: "اس تنظیم کی کارکردگی اور مذہبی خدمات سن کر مجھے بے پناہ روحانی خوشی محسوس ہوئی۔ بلاشبہ، آزمائش، جہالت اور بے دینی کے اس دور میں ایسے ادارے کا قائم ہونا قابل ستائش اور تعریف کا قدم ہے۔",
-        image: "/images/scholars/qasmi.jpg"
+        image: "/qasmi.jpeg"
       },
       {
         id: 3,
         name: "مولانا شاہ عالم گورکھپوری",
         title: "معلم و نائب ناظم، آل انڈیا مجلس تحفظ ختم نبوت",
         quote: "ماشاءاللہ، تنظیم ارتداد سے متعلق فتنوں کے خطرات سے بھی بخوبی آگاہ ہے اور اہل حق علماء کی تائید حاصل ہے۔ اللہ اسے مزید ترقی، قبولیت اور وسیع تر فوائد عطا فرمائے۔",
-        image: "/images/scholars/gorakhpuri.jpg"
+        image: "/gorakhpuri.jpeg"
       },
       {
         id: 4,
         name: "قاضی قاسم مظفرپوری",
         title: "سابق شریعت جج، دارالقضاء، امارت شرعیہ، پھلوار ی شریف، پٹنہ",
         quote: "مجھے دارالقضاء کا دورہ بھی کرایا گیا۔ مجھے بہت سے مقدمات کی فائلیں اور ان کے فیصلے دیکھنے کا موقع ملا۔ ماشاءاللہ، فیصلے مضبوط دلائل پر مبنی تھے اور کاروائی مکمل تھی۔",
-        image: "/images/scholars/muzaffarpuri.jpg"
+        image: "/muzaffarpuri.jpeg"
       },
       {
         id: 5,
         name: "مولانا عبید اللہ الاسعدی",
         title: "شیخ الحدیث، جامعہ عربیہ ہاتھورہ، بانڈہ",
         quote: "الحمدللہ، یہ دارالقضاء گزشتہ کئی سالوں سے اس کثیر آباد مسلم علاقے میں مؤثر طریقے سے کام کر رہا ہے۔ زیر التواء مقدمات کی اوسط تعداد بھی قابل ذکر ہے۔ اللہ اس کے فوائد اور رسائی میں اضافہ فرمائے۔",
-        image: "/images/scholars/al-asaadi.jpg"
-      },
-      {
-        id: 6,
-        name: "مولانا نعمت اللہ اعظمی",
-        title: "پرنسپل، مدرسہ عربیہ قاسمیہ، غوسی",
-        quote: "میں نے اس دارالقضاء کے کام کا قریب سے مشاہدہ کیا ہے۔ مقدمات انصاف اور دیانتداری کے ساتھ طے کیے جاتے ہیں، اور فیصلے مستند اسلامی فقہ پر مبنی ہوتے ہیں۔ یہ مسلم معاشرے کی ایک انتہائی ضروری خدمت ہے۔",
-        image: "/images/scholars/azmi.jpg"
+        image: "/asadi.jpeg"
       }
     ]
   };
@@ -141,8 +127,16 @@ const Testimonials = () => {
         className="relative py-20 bg-gradient-to-r from-emerald-800 to-emerald-600 text-white overflow-hidden"
       >
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[url('/images/islamic-pattern.png')] bg-repeat"></div>
-        </div>
+  <div 
+    className="absolute inset-0 bg-[url('/welfare.jpeg')] bg-cover bg-center bg-no-repeat"
+    style={{
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      filter: "grayscale(100%)" // Optional: makes the image less distracting
+    }}
+  ></div>
+</div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center max-w-4xl mx-auto">
             <motion.h1 
@@ -194,6 +188,7 @@ const Testimonials = () => {
                           src={testimonial.image} 
                           alt={testimonial.name}
                           className="h-full w-full object-cover"
+                          loading="lazy"  // Added lazy loading
                           onError={(e) => {
                             e.currentTarget.src = '/images/scholars/default.jpg';
                           }}

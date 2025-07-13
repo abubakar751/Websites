@@ -211,7 +211,7 @@ const IslahEMuashrah: React.FC = () => {
         className="relative py-20 bg-gradient-to-r from-blue-800 to-blue-600 text-white overflow-hidden"
       >
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[url('/images/islamic-pattern.png')] bg-repeat"></div>
+          <div className="absolute inset-0 bg-[url('/social.jpeg')] bg-repeat"></div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center max-w-4xl mx-auto">
@@ -253,7 +253,7 @@ const IslahEMuashrah: React.FC = () => {
               <div className="bg-blue-100 rounded-2xl p-6 shadow-lg">
                 <div className="aspect-w-16 aspect-h-9">
                   <img 
-                    src="/images/islah-workshop.jpg" 
+                    src="/social.jpeg" 
                     alt="Islah-e-Muashrah Workshop" 
                     className="rounded-lg object-cover w-full h-full"
                   />

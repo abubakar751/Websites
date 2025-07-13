@@ -1,5 +1,10 @@
-<section className="py-20 bg-gray-50">
+
+
+
+    {/* Departments Section 
+      <section className="py-20 bg-gradient-to-br from-emerald-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -16,243 +21,111 @@
             </p>
           </motion.div>
 
-          {/* Cards without top images */}
+          
           <motion.div
-            initial="hidden"
-            whileInView="visible"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            variants={containerVariants}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+            onClick={() => window.location.href = '/departments'}
+            className="cursor-pointer max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl hover:shadow-emerald-200 transition hover:-translate-y-1 duration-300"
           >
-            {[
-              {
-                icon: "⚖️", // Scale emoji for Darul Qaza
-                color: "bg-purple-500",
-                title: language === 'en' ? 'Darul Qaza' : 'دار القضاء',
-                subtitle: language === 'en' ? 'Islamic Justice System' : 'اسلامی نظام عدل',
-                description: language === 'en'
-                  ? 'Providing Islamic legal solutions and dispute resolution according to Shariah principles.'
-                  : 'شرعی اصولوں کے مطابق اسلامی قانونی حل اور تنازعات کا حل فراہم کرنا۔',
-                highlight: language === 'en'
-                  ? 'Shariah-compliant dispute resolution'
-                  : 'شرعی اصولوں کے مطابق تنازعات کا حل',
-                slug: 'darul-qaza'
-              },
-              {
-                icon: "👥", // People emoji for Moral Reform
-                color: "bg-indigo-500",
-                title: language === 'en' ? 'Moral and Social Reform' : 'اصلاح معاشره',
-                subtitle: language === 'en' ? 'Community Betterment' : 'معاشرتی بہتری',
-                description: language === 'en'
-                  ? 'Programs to improve moral character and social conduct based on Islamic teachings.'
-                  : 'اسلامی تعلیمات کی بنیاد پر اخلاقی کردار اور معاشرتی برتاؤ کو بہتر بنانے کے پروگرام۔',
-                highlight: language === 'en'
-                  ? 'Character building workshops'
-                  : 'کردار سازی کے ورکشاپس',
-                slug: 'islah-e-muashrah'
-              },
-              {
-                icon: "📚", // Books emoji for Education
-                color: "bg-blue-500",
-                title: language === 'en' ? 'Education' : 'تعلیم',
-                subtitle: language === 'en' ? 'Islamic & Modern Education' : 'اسلامی و جدید تعلیم',
-                description: language === 'en'
-                  ? 'Comprehensive educational programs combining Islamic and contemporary knowledge.'
-                  : 'اسلامی اور عصری علم کو یکجا کرتے ہوئے جامع تعلیمی پروگرام۔',
-                highlight: language === 'en'
-                  ? 'Integrated curriculum'
-                  : 'مربوط نصاب',
-                slug: 'education'
-              },
-              {
-                icon: "📰", // Newspaper emoji for Media
-                color: "bg-teal-500",
-                title: language === 'en' ? 'Media & Publications' : 'میڈیا و اشاعت',
-                subtitle: language === 'en' ? 'Spreading Islamic Knowledge' : 'اسلامی علم کی اشاعت',
-                description: language === 'en'
-                  ? 'Publishing Islamic content and managing media outreach to spread authentic knowledge.'
-                  : 'اسلامی مواد کی اشاعت اور معتبر علم کی ترویج کے لیے میڈیا آؤٹ ریچ کا انتظام۔',
-                highlight: language === 'en'
-                  ? 'Daily Islamic messages'
-                  : 'روزانہ اسلامی پیغامات',
-                slug: 'publicationmedia'
-              },
-              {
-                icon: "❤️", // Heart emoji for Welfare
-                color: "bg-red-500",
-                title: language === 'en' ? 'Welfare' : 'فلاحی',
-                subtitle: language === 'en' ? 'Social Services' : 'سماجی خدمات',
-                description: language === 'en'
-                  ? 'Programs to support widows, orphans, and the underprivileged in our community.'
-                  : 'ہماری کمیونٹی میں بیواؤں، یتیموں اور ضرورت مندوں کی مدد کے پروگرام۔',
-                highlight: language === 'en'
-                  ? 'Support for 500+ families'
-                  : '500+ خاندانوں کی مدد',
-                slug: 'welfare'
-              }
-            ].map((dept, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                whileHover={{ scale: 1.03 }}
-                onClick={() => window.location.href = `/${dept.slug}`}
-                className="cursor-pointer bg-white rounded-2xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl"
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  <div className={`w-14 h-14 ${dept.color} rounded-xl flex items-center justify-center text-2xl`}>
-                    {dept.icon}
-                  </div>
-                  <div>
-                    <h3 className={`text-xl font-bold text-gray-900 ${language === 'ur' ? 'urdu-font text-right' : ''}`}>
-                      {dept.title}
-                    </h3>
-                    <h4 className={`text-md text-emerald-600 font-semibold ${language === 'ur' ? 'urdu-font text-right' : ''}`}>
-                      {dept.subtitle}
-                    </h4>
-                  </div>
-                </div>
-                <p className={`text-gray-700 leading-relaxed mb-4 ${language === 'ur' ? 'urdu-font text-right' : ''}`}>
-                  {dept.description.length > 120 ? dept.description.substring(0, 120) + '...' : dept.description}
+            <div className="flex flex-col md:flex-row items-center p-8 gap-6">
+              
+              <div className="bg-emerald-600 text-white w-20 h-20 flex items-center justify-center rounded-2xl text-3xl shrink-0">
+                🏛️
+              </div>
+
+
+              
+              <div className="flex-1">
+                <h3 className={`text-2xl font-bold text-gray-900 ${language === 'ur' ? 'urdu-font text-right' : ''}`}>
+                  {language === 'en' ? 'Explore All Departments' : 'تمام شعبہ جات کا جائزہ لیں'}
+                </h3>
+                <p className={`mt-2 text-gray-700 ${language === 'ur' ? 'urdu-font text-right' : ''}`}>
+                  {language === 'en'
+                    ? 'Click here to discover how each department contributes to the welfare and upliftment of the community through Islamic values and social services.'
+                    : 'یہاں کلک کریں تاکہ آپ ہر شعبہ کس طرح اسلامی اقدار اور سماجی خدمات کے ذریعے کمیونٹی کی فلاح و بہبود میں کردار ادا کرتا ہے، جان سکیں۔'}
                 </p>
+              </div>
 
-                {dept.highlight && (
-                  <div className="bg-emerald-50 rounded-lg p-3 border-l-4 border-emerald-600 mb-3">
-                    <p className={`text-emerald-700 font-semibold ${language === 'ur' ? 'urdu-font text-right' : ''}`}>
-                      ✓ {dept.highlight}
-                    </p>
-                  </div>
-                )}
-
-                <div className={`${language === 'ur' ? 'text-right' : 'text-left'}`}>
-                  <Link
-                    to={`/${dept.slug}`}
-                    onClick={(e) => e.stopPropagation()}
-                    className="inline-block mt-2 text-white bg-emerald-600 hover:bg-emerald-700 transition px-4 py-2 rounded-md text-sm font-semibold"
-                  >
-                    {language === 'ur' ? 'مزید پڑھیں' : 'Know More'}
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
+           
+              <div className="mt-4 md:mt-0">
+                <button className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2 px-6 rounded-md text-sm">
+                  {language === 'ur' ? 'مزید دیکھیں' : 'View More'}
+                </button>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
-	  
-	  
-	  
-	  {/* Aims & Future Plans Section */}
+      */}
 
-      <section className="py-20 bg-white">
+      {   /* Plans
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Heading */}
+          
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className={`text-4xl font-bold text-gray-900 mb-4 ${language === 'ur' ? 'font-urdu text-5xl' : ''}`}>
+            <h2 className={`text-4xl font-bold text-gray-900 mb-6 ${language === 'ur' ? 'urdu-font text-5xl' : ''}`}>
               {language === 'en' ? 'Aims & Future Plans' : 'مقاصد اور مستقبل کے منصوبے'}
             </h2>
-            <p className={`text-xl text-gray-600 max-w-3xl mx-auto ${language === 'ur' ? 'font-urdu text-2xl text-right' : ''}`}>
+            <p className={`text-xl text-gray-600 max-w-3xl mx-auto ${language === 'ur' ? 'urdu-font text-2xl text-right' : ''}`}>
               {language === 'en'
-                ? 'Our vision for the future development of the community'
-                : 'کمیونٹی کی ترقی کے لیے ہمارے مستقبل کے وژن'}
+                ? 'Our vision for the future development of the community.'
+                : 'کمیونٹی کی ترقی کے لیے ہمارے مستقبل کے وژن۔'}
             </p>
           </motion.div>
 
-          {/* Cards */}
+          
           <motion.div
-            initial="hidden"
-            whileInView="visible"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: { staggerChildren: 0.2 }
-              }
-            }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+            onClick={() => window.location.href = '/plans'}
+            className="cursor-pointer max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl hover:shadow-blue-200 transition hover:-translate-y-1 duration-300"
           >
-            {[
-              {
-                title: language === 'en' ? 'Islamic School' : 'اسلامی اسکول',
-                description: language === 'en'
-                  ? 'To protect Muslim children from polytheistic teachings and to instill Islamic and moral values.'
-                  : 'مسلم بچوں کو شرکیہ تعلیمات سے بچانے اور اسلامی اور اخلاقی اقدار کو فروغ دینے کے لیے۔',
-                color: 'from-blue-100 to-white'
-              },
-              {
-                title: language === 'en' ? 'Family Counseling Center' : 'خاندانی مشاورتی مرکز',
-                description: language === 'en'
-                  ? 'To guide individuals before marriage and resolve post-marital domestic issues through evaluation and consultation.'
-                  : 'شادی سے پہلے افراد کی رہنمائی اور شادی کے بعد گھریلو مسائل کو تشخیص اور مشاورت کے ذریعے حل کرنا۔',
-                color: 'from-purple-100 to-white'
-              },
-              {
-                title: language === 'en' ? 'Charitable Clinic' : 'خیراتی کلینک',
-                description: language === 'en'
-                  ? 'To provide free or low-cost medical treatment and medicines to the poor and needy.'
-                  : 'غریبوں اور ضرورت مندوں کو مفت یا کم قیمت پر طبی علاج اور ادویات فراہم کرنا۔',
-                color: 'from-red-100 to-white'
-              },
-              {
-                title: language === 'en' ? 'Public Library' : 'عوامی لائبریری',
-                description: language === 'en'
-                  ? 'To promote a culture of reading and help students prepare for exams.'
-                  : 'پڑھنے کی ثقافت کو فروغ دینے اور طلباء کو امتحانات کی تیاری میں مدد کرنے کے لیے۔',
-                color: 'from-green-100 to-white'
-              }
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0 }
-                }}
-                className={`bg-gradient-to-br ${item.color} rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200`}
-              >
-                <h3 className={`text-xl font-semibold text-gray-900 mb-3 ${language === 'ur' ? 'font-urdu text-right' : ''}`}>
-                  {item.title}
+            <div className="flex flex-col md:flex-row items-center p-8 gap-6">
+              
+              <div className="bg-blue-600 text-white w-20 h-20 flex items-center justify-center rounded-2xl text-3xl shrink-0">
+                🎯
+              </div>
+
+              
+              <div className="flex-1">
+                <h3 className={`text-2xl font-bold text-gray-900 ${language === 'ur' ? 'urdu-font text-right' : ''}`}>
+                  {language === 'en' ? 'Discover Our Vision' : 'ہمارے وژن کو دریافت کریں'}
                 </h3>
-                <p className={`text-gray-700 leading-relaxed ${language === 'ur' ? 'font-urdu text-right' : ''}`}>
-                  {item.description}
+                <p className={`mt-2 text-gray-700 ${language === 'ur' ? 'urdu-font text-right' : ''}`}>
+                  {language === 'en'
+                    ? 'Click to learn how our plans aim to uplift the community through education, healthcare, and spiritual growth.'
+                    : 'یہ جاننے کے لیے کلک کریں کہ ہمارے منصوبے تعلیم، صحت اور روحانی ترقی کے ذریعے کمیونٹی کو کیسے بہتر بنانے کا عزم رکھتے ہیں۔'}
                 </p>
-              </motion.div>
-            ))}
+              </div>
+
+             
+              <div className="mt-4 md:mt-0">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-md text-sm">
+                  {language === 'ur' ? 'مزید دیکھیں' : 'View More'}
+                </button>
+              </div>
+            </div>
           </motion.div>
         </div>
+      </section>*/}
 
-        {/* Global Style for Fonts */}
-        <style jsx global>{`
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+      {   /*Needs & Requirements 
 
-    @font-face {
-      font-family: 'Noori Nastaliq';
-      src: url('/fonts/NooriNastaliq.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-    }
 
-    .font-urdu {
-      font-family: 'Noori Nastaliq', serif;
-      line-height: 1.9;
-    }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
-  `}</style>
-      </section>
-	  
-	  
-	  
-	  
-	  
-	  {/* Needs & Requirements Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -269,202 +142,42 @@
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Mosque Expansion Section */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden"
-            >
-              <div className="p-8">
-                <div className="flex items-center mb-6">
-                  <div className="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-xl flex items-center justify-center mr-4">
-                    <Landmark className="w-6 h-6" />
-                  </div>
-                  <h3 className={`text-2xl font-bold text-gray-900 ${language === 'ur' ? 'urdu-font' : ''}`}>
-                    {language === 'en' ? 'Mosque Expansion' : 'مسجد کی توسیع'}
-                  </h3>
-                </div>
-                <p className={`text-gray-700 mb-6 leading-relaxed ${language === 'ur' ? 'urdu-font text-right text-xl' : ''}`}>
-                  {language === 'en'
-                    ? 'The current mosque building has become narrow and dilapidated. Purchasing new land and constructing a new mosque is extremely necessary for our growing community.'
-                    : 'موجودہ مسجد کی عمارت تنگ اور خستہ حال ہو چکی ہے۔ بڑھتی ہوئی کمیونٹی کے لیے نئی زمین خریدنے اور نئی مسجد تعمیر کرنا انتہائی ضروری ہے۔'}
-                </p>
-                <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r">
-                  <p className={`text-amber-700 ${language === 'ur' ? 'urdu-font text-right' : ''}`}>
-                    {language === 'en'
-                      ? 'Urgent need for community support and donations'
-                      : 'کمیونٹی کی حمایت اور عطیات کی فوری ضرورت'}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Other Requirements */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="space-y-6"
-            >
-              {[
-                {
-                  icon: Book,
-                  title: language === 'en' ? 'Reference Books' : 'حوالہ جات کی کتابیں',
-                  description: language === 'en'
-                    ? 'For Darul Qaza, there is a growing need for additional reference books and scholarly sources to properly resolve cases.'
-                    : 'دارالقضاء کے لیے مقدمات کو صحیح طریقے سے حل کرنے کے لیے اضافی حوالہ جات اور علمی مصادر کی ضرورت ہے۔',
-                  color: 'bg-blue-100 text-blue-700'
-                },
-                {
-                  icon: PlusCircle,
-                  title: language === 'en' ? 'Darul Qaza Building' : 'دارالقضاء کی عمارت',
-                  description: language === 'en'
-                    ? 'Need for a dedicated space for Darul Qaza where proceedings can be conducted smoothly without disruption.'
-                    : 'دارالقضاء کے لیے ایک مختص جگہ کی ضرورت ہے جہاں کارروائی بغیر کسی رکاوٹ کے ہمواری سے کی جا سکے۔',
-                  color: 'bg-purple-100 text-purple-700'
-                },
-                {
-                  icon: Scale,
-                  title: language === 'en' ? 'Legal Resources' : 'قانونی وسائل',
-                  description: language === 'en'
-                    ? 'Requirement for updated legal resources and training for our scholars to handle complex cases.'
-                    : 'پیچیدہ مقدمات کو سنبھالنے کے لیے ہمارے علماء کے لیے جدید قانونی وسائل اور تربیت کی ضرورت ہے۔',
-                  color: 'bg-green-100 text-green-700'
-                }
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 flex items-start"
-                >
-                  <div className={`w-12 h-12 ${item.color} rounded-lg flex items-center justify-center mr-4 flex-shrink-0`}>
-                    <item.icon className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h4 className={`font-bold text-gray-900 mb-1 ${language === 'ur' ? 'urdu-font text-right' : ''}`}>
-                      {item.title}
-                    </h4>
-                    <p className={`text-gray-600 text-sm ${language === 'ur' ? 'urdu-font text-right' : ''}`}>
-                      {item.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Donation Options Section */}
+         
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="mt-16 bg-white rounded-2xl shadow-lg overflow-hidden"
+            onClick={() => (window.location.href = '/needs')}
+            className="cursor-pointer max-w-4xl mx-auto bg-white rounded-3xl shadow-xl hover:shadow-emerald-200 transition hover:-translate-y-1 duration-300"
           >
-            <div className="p-8">
-              <h3 className={`text-2xl font-bold text-center mb-8 ${language === 'ur' ? 'urdu-font' : ''}`}>
-                {language === 'en' ? 'Donation Options' : 'عطیہ دینے کے طریقے'}
-              </h3>
+            <div className="flex flex-col md:flex-row items-center p-8 gap-6">
+            
+              <div className="bg-emerald-600 text-white w-20 h-20 flex items-center justify-center rounded-2xl text-3xl shrink-0">
+                <Building2 className="w-8 h-8" />
+              </div>
 
-              <div className="grid md:grid-cols-3 gap-8">
-                {/* UPI Payment */}
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <div className="text-center mb-4">
-                    <Smartphone className="w-10 h-10 mx-auto text-indigo-600" />
-                    <h4 className={`font-bold text-lg mt-2 ${language === 'ur' ? 'urdu-font' : ''}`}>
-                      {language === 'en' ? 'UPI Payment' : 'یو پی آئی ادائیگی'}
-                    </h4>
-                  </div>
-                  <div className="text-center">
-                    <p className={`text-gray-700 mb-2 ${language === 'ur' ? 'urdu-font' : ''}`}>
-                      {language === 'en' ? 'Scan QR Code or use UPI ID:' : 'QR کوڈ اسکین کریں یا UPI ID استعمال کریں:'}
-                    </p>
-                    <img
-                      src="/qrcode.jpg"
-                      alt="UPI QR Code"
-                      className="w-48 h-48 mx-auto mb-4 border border-gray-200 rounded-lg"
-                    />
-                    <div className="bg-gray-100 p-3 rounded-lg">
-                      <p className="font-mono text-lg font-bold text-gray-800">bqtanzeemuaswjm-1@okicici</p>
-                    </div>
-                    <a
-                      href="upi://pay?pa=bqtanzeemuaswjm-1@okicici&pn=Tanzeem&cu=INR"
-                      className="inline-block mt-4 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition"
-                    >
-                      {language === 'en' ? 'Pay via UPI' : 'یو پی آئی سے ادائیگی کریں'}
-                    </a>
-                  </div>
-                </div>
+              
+              <div className="flex-1">
+                <h3 className={`text-2xl font-bold text-gray-900 ${language === 'ur' ? 'urdu-font text-right' : ''}`}>
+                  {language === 'en' ? 'Support Infrastructure Needs' : 'انفراسٹرکچر کی ضروریات میں تعاون کریں'}
+                </h3>
+                <p className={`mt-2 text-gray-700 ${language === 'ur' ? 'urdu-font text-right' : ''}`}>
+                  {language === 'en'
+                    ? 'Click to learn about our current physical and resource needs like buildings, books, and facilities.'
+                    : 'ہماری موجودہ عمارتوں، کتب اور سہولیات جیسی ضروریات کے بارے میں جاننے کے لیے کلک کریں۔'}
+                </p>
+              </div>
 
-                {/* Bank Transfer */}
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <div className="text-center mb-4">
-                    <Landmark className="w-10 h-10 mx-auto text-green-600" />
-                    <h4 className={`font-bold text-lg mt-2 ${language === 'ur' ? 'urdu-font' : ''}`}>
-                      {language === 'en' ? 'Bank Transfer' : 'بینک ٹرانسفر'}
-                    </h4>
-                  </div>
-                  <div className="space-y-3">
-                    <div>
-                      <p className={`text-sm text-gray-500 ${language === 'ur' ? 'urdu-font text-right' : ''}`}>
-                        {language === 'en' ? 'Account Name' : 'اکاؤنٹ کا نام'}
-                      </p>
-                      <p className="font-semibold">TANZEEM ULMA E AHLE SUNNAT WAL JAMAAT</p>
-                    </div>
-                    <div>
-                      <p className={`text-sm text-gray-500 ${language === 'ur' ? 'urdu-font text-right' : ''}`}>
-                        {language === 'en' ? 'Account Number' : 'اکاؤنٹ نمبر'}
-                      </p>
-                      <p className="font-semibold">750061001031878</p>
-                    </div>
-                    <div>
-                      <p className={`text-sm text-gray-500 ${language === 'ur' ? 'urdu-font text-right' : ''}`}>
-                        {language === 'en' ? 'Bank Name' : 'بینک کا نام'}
-                      </p>
-                      <p className="font-semibold">KOKAN MERCANTILE CO-OP BANK </p>
-                    </div>
-                    <div>
-                      <p className={`text-sm text-gray-500 ${language === 'ur' ? 'urdu-font text-right' : ''}`}>
-                        {language === 'en' ? 'Branch & IFSC' : 'برانچ اور IFSC'}
-                      </p>
-                      <p className="font-semibold">GOANDI BRANCH ,KKBK0KMCB02</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Online Donation */}
-                
+              
+              <div className="mt-4 md:mt-0">
+                <button className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2 px-6 rounded-md text-sm">
+                  {language === 'ur' ? 'مزید دیکھیں' : 'View More'}
+                </button>
               </div>
             </div>
           </motion.div>
-
-          {/* CTA Section */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="text-center mt-8"
-          >
-            <p className={`text-gray-600 mb-4 ${language === 'ur' ? 'urdu-font text-xl' : ''}`}>
-              {language === 'en'
-                ? 'Your support can make a difference'
-                : 'آپ کی حمایت ایک فرق پیدا کر سکتی ہے'}
-            </p>
-            <Link
-              to="/donate"
-              className="inline-flex items-center px-8 py-3 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-700 transition-all duration-300 shadow-md hover:shadow-lg"
-            >
-              {language === 'en' ? 'Support Our Cause' : 'ہمارے مقصد کی حمایت کریں'}
-              <Heart className={`w-5 h-5 ${language === 'ur' ? 'mr-2' : 'ml-2'}`} />
-            </Link>
-          </motion.div>
         </div>
       </section>
+*/}
+
