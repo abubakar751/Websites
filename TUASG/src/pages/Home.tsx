@@ -1076,6 +1076,8 @@ const Home: React.FC = () => {
   </section>
 
       {/* Testimonials Carousel Section */}
+{/* Testimonials Section */}
+{/* Testimonials Section */}
 <section className="py-16 bg-emerald-50 relative">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <motion.div
@@ -1094,167 +1096,175 @@ const Home: React.FC = () => {
       </p>
     </motion.div>
 
-    <div className="relative px-4 sm:px-6 lg:px-10">
-      <Carousel
-        showArrows={true}
-        showStatus={false}
-        showIndicators={true}
-        infiniteLoop={true}
-        centerMode={true}
-        centerSlidePercentage={80}
-        swipeable={true}
-        emulateTouch={true}
-        renderArrowPrev={(onClickHandler, hasPrev, label) =>
-          hasPrev && (
-            <button
-              type="button"
-              onClick={onClickHandler}
-              title={label}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-emerald-50 transition-colors"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-emerald-600"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+    <div className="relative px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto">
+        <Carousel
+          showArrows={true}
+          showStatus={false}
+          showIndicators={true}
+          infiniteLoop={true}
+          centerMode={false}
+          swipeable={true}
+          emulateTouch={true}
+          autoPlay={true}
+          interval={5000}
+          transitionTime={500}
+          renderArrowPrev={(onClickHandler, hasPrev, label) =>
+            hasPrev && (
+              <button
+                type="button"
+                onClick={onClickHandler}
+                title={label}
+                className="absolute left-0 sm:-left-8 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-emerald-100 transition-colors"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-          )
-        }
-        renderArrowNext={(onClickHandler, hasNext, label) =>
-          hasNext && (
-            <button
-              type="button"
-              onClick={onClickHandler}
-              title={label}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-emerald-50 transition-colors"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-emerald-600"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          )
-        }
-      >
-        {(language === 'en' ? [
-          {
-            id: 1,
-            name: "Maulana Khalid Saifullah Rahmani",
-            title: "President, All India Muslim Personal Law Board",
-            quote: "I had the opportunity to observe the activities here, especially to review the system of Darul Qaza. I was very pleased and realized that this institution is rendering a great and beneficial service with lofty ambitions. I pray that Allah grants it continued success.",
-            image: "/rahmani.jpg"
-          },
-          {
-            id: 2,
-            name: "Maulana Muhammad Yamin Qasmi",
-            title: "Preacher, Darul Uloom Deoband",
-            quote: "Listening to the performance and religious services of this Tanzeem gave me immense spiritual joy. Undoubtedly, in this era of trials, ignorance, and irreligiousness, the establishment of such an organization is a commendable and praiseworthy step.",
-            image: "/qasmi.jpeg"
-          },
-          {
-            id: 3,
-            name: "Maulana Shah Alam Gorakhpuri",
-            title: "Teacher & Deputy Administrator, All India Majlis Tahaffuz Khatm-e-Nubuwwat",
-            quote: "MashaAllah, the Tanzeem is also actively aware of the threats posed by apostasy-related fitnas and is supported by the scholars of truth. May Allah grant it further progress, acceptance, and widespread benefit.",
-            image: "/gorakhpuri.jpeg"
-          },
-          {
-            id: 4,
-            name: "Qazi Qasim Muzaffarpuri",
-            title: "Former Shariah Judge, Darul Qaza, Imarat-e-Shariah, Phulwari Sharif, Patna",
-            quote: "I was also taken on a tour of the Darul Qaza. I had the opportunity to go through many case files and their rulings. MashaAllah, the judgments were well-reasoned, and the proceedings were thorough.",
-            image: "/muzaffarpuri.jpeg"
-          },
-          {
-            id: 5,
-            name: "Maulana Obaidullah Al-Asa'di",
-            title: "Sheikh-ul-Hadith, Jamia Arabia Hathoura, Banda",
-            quote: "By the grace of Allah, this Darul Qaza has been functioning effectively for the past several years in this densely populated Muslim area. The average number of cases handled is also notable. May Allah increase its benefit and reach.",
-            image: "/asadi.jpeg"
-          }
-        ] : [
-          {
-            id: 1,
-            name: "مولانا خالد سیف اللہ رحمانی",
-            title: "صدر، آل انڈیا مسلم پرسنل لاء بورڈ",
-            quote: "مجھے یہاں کی سرگرمیوں کا مشاہدہ کرنے کا موقع ملا، خاص طور پر دارالقضاء کے نظام کا جائزہ لینے کا۔ میں بہت خوش ہوا اور محسوس کیا کہ یہ ادارہ بلند عزائم کے ساتھ عظیم اور مفید خدمت انجام دے رہا ہے۔ میں دعا گو ہوں کہ اللہ اسے مسلسل کامیابی عطا فرمائے۔",
-            image: "/rahmani.jpg"
-          },
-          {
-            id: 2,
-            name: "مولانا محمد یامین قاسمی",
-            title: "واعظ، دارالعلوم دیوبند",
-            quote: "اس تنظیم کی کارکردگی اور مذہبی خدمات سن کر مجھے بے پناہ روحانی خوشی محسوس ہوئی۔ بلاشبہ، آزمائش، جہالت اور بے دینی کے اس دور میں ایسے ادارے کا قائم ہونا قابل ستائش اور تعریف کا قدم ہے۔",
-            image: "/qasmi.jpeg"
-          },
-          {
-            id: 3,
-            name: "مولانا شاہ عالم گورکھپوری",
-            title: "معلم و نائب ناظم، آل انڈیا مجلس تحفظ ختم نبوت",
-            quote: "ماشاءاللہ، تنظیم ارتداد سے متعلق فتنوں کے خطرات سے بھی بخوبی آگاہ ہے اور اہل حق علماء کی تائید حاصل ہے۔ اللہ اسے مزید ترقی، قبولیت اور وسیع تر فوائد عطا فرمائے۔",
-            image: "/gorakhpuri.jpeg"
-          },
-          {
-            id: 4,
-            name: "قاضی قاسم مظفرپوری",
-            title: "سابق شریعت جج، دارالقضاء، امارت شرعیہ، پھلوار ی شریف، پٹنہ",
-            quote: "مجھے دارالقضاء کا دورہ بھی کرایا گیا۔ مجھے بہت سے مقدمات کی فائلیں اور ان کے فیصلے دیکھنے کا موقع ملا۔ ماشاءاللہ، فیصلے مضبوط دلائل پر مبنی تھے اور کاروائی مکمل تھی۔",
-            image: "/muzaffarpuri.jpeg"
-          },
-          {
-            id: 5,
-            name: "مولانا عبید اللہ الاسعدی",
-            title: "شیخ الحدیث، جامعہ عربیہ ہاتھورہ، بانڈہ",
-            quote: "الحمدللہ، یہ دارالقضاء گزشتہ کئی سالوں سے اس کثیر آباد مسلم علاقے میں مؤثر طریقے سے کام کر رہا ہے۔ زیر التواء مقدمات کی اوسط تعداد بھی قابل ذکر ہے۔ اللہ اس کے فوائد اور رسائی میں اضافہ فرمائے۔",
-            image: "/asadi.jpeg"
-          }
-        ]).map((testimonial) => (
-          <div key={testimonial.id} className="px-2 sm:px-4 h-full">
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="bg-white p-6 sm:p-8 rounded-xl shadow-lg h-full flex flex-col mx-1 sm:mx-2"
-            >
-              <div className="mb-4 sm:mb-6">
-                <svg className="w-10 h-10 sm:w-12 sm:h-12 text-emerald-500" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 text-emerald-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
-              </div>
-              <p className={`text-gray-700 mb-6 sm:mb-8 flex-grow ${language === 'ur' ? 'urdu-font text-right text-lg sm:text-xl leading-relaxed' : 'text-sm sm:text-base'}`}>
-                "{testimonial.quote}"
-              </p>
-              <div className="flex items-center mt-auto">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full overflow-hidden mr-3 sm:mr-4 border-2 border-emerald-500">
-                  <img 
-                    src={testimonial.image} 
-                    alt={testimonial.name} 
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = '/placeholder.jpg'; // fallback image
-                    }}
-                  />
+              </button>
+            )
+          }
+          renderArrowNext={(onClickHandler, hasNext, label) =>
+            hasNext && (
+              <button
+                type="button"
+                onClick={onClickHandler}
+                title={label}
+                className="absolute right-0 sm:-right-8 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-emerald-100 transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 text-emerald-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            )
+          }
+        >
+          {(language === 'en' ? [
+            {
+              id: 1,
+              name: "Maulana Khalid Saifullah Rahmani",
+              title: "President, All India Muslim Personal Law Board",
+              quote: "I had the opportunity to observe the activities here, especially to review the system of Darul Qaza. I was very pleased and realized that this institution is rendering a great and beneficial service with lofty ambitions.",
+              image: "/rahmani.jpg"
+            },
+            {
+              id: 2,
+              name: "Maulana Muhammad Yamin Qasmi",
+              title: "Preacher, Darul Uloom Deoband",
+              quote: "Listening to the performance and religious services of this Tanzeem gave me immense spiritual joy. Undoubtedly, in this era of trials, the establishment of such an organization is commendable.",
+              image: "/qasmi.jpg"
+            },
+            {
+              id: 3,
+              name: "Maulana Shah Alam Gorakhpuri",
+              title: "Teacher & Deputy Administrator",
+              quote: "MashaAllah, the Tanzeem is also actively aware of the threats posed by apostasy-related fitnas and is supported by the scholars of truth.",
+              image: "/gorakhpuri.jpg"
+            },
+            {
+              id: 4,
+              name: "Qazi Qasim Muzaffarpuri",
+              title: "Former Shariah Judge, Darul Qaza",
+              quote: "I was also taken on a tour of the Darul Qaza. I had the opportunity to go through many case files and their rulings. MashaAllah, the judgments were well-reasoned.",
+              image: "/muzaffarpuri.jpg"
+            },
+            {
+              id: 5,
+              name: "Maulana Obaidullah Al-Asa'di",
+              title: "Sheikh-ul-Hadith, Jamia Arabia Hathoura",
+              quote: "By the grace of Allah, this Darul Qaza has been functioning effectively for the past several years in this densely populated Muslim area.",
+              image: "/asadi.jpg"
+            }
+          ] : [
+            {
+              id: 1,
+              name: "مولانا خالد سیف اللہ رحمانی",
+              title: "صدر، آل انڈیا مسلم پرسنل لاء بورڈ",
+              quote: "مجھے یہاں کی سرگرمیوں کا مشاہدہ کرنے کا موقع ملا، خاص طور پر دارالقضاء کے نظام کا جائزہ لینے کا۔ میں بہت خوش ہوا اور محسوس کیا کہ یہ ادارہ بلند عزائم کے ساتھ عظیم اور مفید خدمت انجام دے رہا ہے۔",
+              image: "/rahmani.jpg"
+            },
+            {
+              id: 2,
+              name: "مولانا محمد یامین قاسمی",
+              title: "واعظ، دارالعلوم دیوبند",
+              quote: "اس تنظیم کی کارکردگی اور مذہبی خدمات سن کر مجھے بے پناہ روحانی خوشی محسوس ہوئی۔ بلاشبہ، آزمائش کے اس دور میں ایسے ادارے کا قائم ہونا قابل ستائش ہے۔",
+              image: "/qasmi.jpg"
+            },
+            {
+              id: 3,
+              name: "مولانا شاہ عالم گورکھپوری",
+              title: "معلم و نائب ناظم",
+              quote: "ماشاءاللہ، تنظیم ارتداد سے متعلق فتنوں کے خطرات سے بھی بخوبی آگاہ ہے اور اہل حق علماء کی تائید حاصل ہے۔",
+              image: "/gorakhpuri.jpg"
+            },
+            {
+              id: 4,
+              name: "قاضی قاسم مظفرپوری",
+              title: "سابق شریعت جج، دارالقضاء",
+              quote: "مجھے دارالقضاء کا دورہ بھی کرایا گیا۔ مجھے بہت سے مقدمات کی فائلیں اور ان کے فیصلے دیکھنے کا موقع ملا۔ ماشاءاللہ، فیصلے مضبوط دلائل پر مبنی تھے۔",
+              image: "/muzaffarpuri.jpg"
+            },
+            {
+              id: 5,
+              name: "مولانا عبید اللہ الاسعدی",
+              title: "شیخ الحدیث، جامعہ عربیہ ہاتھورہ",
+              quote: "الحمدللہ، یہ دارالقضاء گزشتہ کئی سالوں سے اس کثیر آباد مسلم علاقے میں مؤثر طریقے سے کام کر رہا ہے۔",
+              image: "/asadi.jpg"
+            }
+          ]).map((testimonial) => (
+            <div key={testimonial.id} className="px-2 h-full">
+              <motion.div
+                whileHover={{ scale: 1.01 }}
+                className="bg-white p-6 rounded-xl shadow-lg h-full flex flex-col mx-auto max-w-2xl"
+              >
+                <div className="flex flex-col md:flex-row gap-6">
+                  <div className="w-full md:w-1/3 flex justify-center">
+                    <div className="w-40 h-40 rounded-xl overflow-hidden shadow-md border-4 border-emerald-100">
+                      <img 
+                        src={testimonial.image} 
+                        alt={testimonial.name} 
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = '/placeholder.jpg';
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div className="w-full md:w-2/3 flex flex-col">
+                    <div className="mb-4">
+                      <svg className="w-10 h-10 text-emerald-500 opacity-70" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                      </svg>
+                    </div>
+                    <p className={`text-gray-700 mb-4 flex-grow ${language === 'ur' ? 'urdu-font text-right text-lg leading-relaxed' : 'text-base'}`}>
+                      "{testimonial.quote}"
+                    </p>
+                    <div className={`mt-auto ${language === 'ur' ? 'text-right' : ''}`}>
+                      <h4 className={`font-bold text-gray-900 ${language === 'ur' ? 'urdu-font text-lg' : 'text-base'}`}>
+                        {testimonial.name}
+                      </h4>
+                      <p className={`text-emerald-600 ${language === 'ur' ? 'urdu-font text-sm' : 'text-sm'}`}>
+                        {testimonial.title}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div className={language === 'ur' ? 'text-right' : ''}>
-                  <h4 className={`font-bold text-gray-900 ${language === 'ur' ? 'urdu-font text-lg' : 'text-sm sm:text-base'}`}>
-                    {testimonial.name}
-                  </h4>
-                  <p className={`text-emerald-600 ${language === 'ur' ? 'urdu-font text-sm' : 'text-xs sm:text-sm'}`}>
-                    {testimonial.title}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        ))}
-      </Carousel>
+              </motion.div>
+            </div>
+          ))}
+        </Carousel>
+      </div>
     </div>
 
     <motion.div
@@ -1262,7 +1272,7 @@ const Home: React.FC = () => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ delay: 0.4 }}
-      className="text-center mt-8"
+      className="text-center mt-12"
     >
       <Link
         to="/testimonials"

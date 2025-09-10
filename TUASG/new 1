@@ -1,0 +1,57 @@
+package com.oops;
+interface Payment {
+    void pay();
+}
+
+
+class GooglePay implements Payment {
+    public void pay() {
+        System.out.println("Paid via Google Pay");
+    }
+}
+
+
+class PhonePe implements Payment {
+    public void pay() {
+        System.out.println("Paid via PhonePe");
+    }
+}
+
+
+class PaymentService {
+    Payment payment;
+
+    PaymentService(Payment payment) {
+        this.payment = payment;
+    }
+
+    void makePayment() {
+        payment.pay();
+    }
+}
+
+
+public class D_CouplingDemo {
+	void pay(Payment payment)
+	{
+		payment.pay();
+	}
+    public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter the choice ");
+	String choice =sc.nextline();
+    	if(choice.equals("GooglePe"))
+    	{
+    		D_CouplingDemo couplingDemo = new D_CouplingDemo();
+        	couplingDemo.pay(new GooglePay());
+    	}
+    	else if(choice.equals("PhonePe"))
+    	{
+    		D_CouplingDemo couplingDemo = new D_CouplingDemo();
+        	couplingDemo.pay(new PhonePe());
+    	}
+    	else {
+    		System.out.println("Please choose payment method");
+    	}
+    }
+}
