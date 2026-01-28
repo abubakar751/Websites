@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://https://mobi-fast-fix-mobile.netlify.app/sitemap.xml

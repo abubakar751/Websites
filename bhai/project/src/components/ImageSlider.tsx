@@ -44,7 +44,7 @@ const ImageSlider = () => {
     },
     {
       id: 4,
-      image: 'https://fs.npstatic.com/userfiles/7043987/image/news/androidpit-iphone-batteries-smartphone.jpg',
+      image: 'https://www.slashgear.com/img/gallery/iphone-repairs-may-soon-be-a-lot-easier-and-cheaper-for-everyone/why-the-shift-1719598579.jpg',
       title: 'Battery Replacement',
       mobileTitle: 'Battery Fix',
       subtitle: 'Extended Life & Performance',

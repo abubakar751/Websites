@@ -7,12 +7,18 @@ import Process from './pages/Process';
 import Contact from './pages/Contact';
 import About from './pages/About';
 import Footer from './components/Footer';
-
+import FloatingWhatsApp from './pages/FloatingWhatsApp';
+import ScrollToTop from './pages/ScrollToTop'; // ✅ ADD THIS
+import { HelmetProvider } from 'react-helmet-async';
 function App() {
   return (
+     <HelmetProvider>
     <Router>
+      <ScrollToTop />
+
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
         <Header />
+
         <main className="pt-16">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -22,9 +28,13 @@ function App() {
             <Route path="/about" element={<About />} />
           </Routes>
         </main>
+
         <Footer />
       </div>
+
+      <FloatingWhatsApp />
     </Router>
+    </HelmetProvider>
   );
 }
 

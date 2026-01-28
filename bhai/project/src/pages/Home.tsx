@@ -6,6 +6,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import ServiceCard from '../components/ServiceCard';
 import ImageSlider from '../components/ImageSlider';
 import { services } from '../data/services';
+import { useNavigate } from "react-router-dom";
+
 
 // Carousel images data
 const carouselImages = [
@@ -26,7 +28,8 @@ const carouselImages = [
     alt: "Expert Technicians",
     caption: "Certified Technicians",
     subtext: "Skilled professionals with years of experience"
-  }
+  },
+  
 ];
 
 
@@ -35,57 +38,133 @@ const carouselImages = [
 
 
 const Home = () => {
-  
+  const navigate = useNavigate();
+
   const featuredServices = services.slice(0, 6);
 
   return (
     <div className="animate-fade-in">
-     <section className="relative py-16 bg-gradient-to-br from-primary-900 via-primary-800 to-secondary-800">
-        <div className="absolute inset-0 bg-black/30"></div>
+     <section className="relative py-16 bg-gradient-to-br from-primary-900 via-primary-800 to-secondary-800 overflow-hidden">
+  {/* Main Background Image with Overlay */}
+  <div className="absolute inset-0">
+    {/* Background Image with dark overlay */}
+    <img 
+      src="https://gadzetspro.com/images-service-center/service-home-1.webp" 
+      alt="Technology background"
+      className="absolute inset-0 w-full h-full object-cover"
+    />
+    
+    {/* Dark overlay for better text readability */}
+    <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/50"></div>
+    
+    {/* Additional gradient overlay */}
+    <div className="absolute inset-0 bg-gradient-to-br from-primary-900/40 via-primary-800/30 to-secondary-800/30"></div>
+    
+    {/* Animated gradient overlay */}
+    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer"></div>
+  </div>
+  
+  {/* Floating Device Repair Image */}
+  <div className="absolute right-10 top-1/2 transform -translate-y-1/2 hidden lg:block animate-slide-in-right">
+    <div className="relative">
+      {/* Glow effect behind image */}
+      <div className="absolute -inset-4 bg-secondary-500/20 rounded-3xl blur-xl"></div>
+      
+      {/* Device repair image with frame */}
+      <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden shadow-2xl shadow-black/50 border border-gray-700/50 p-2">
+        <img 
+          src="https://img.freepik.com/premium-photo/advanced-mobile-repair-technician-using-modern-equipment-fixes_1021867-92753.jpg" 
+          alt="Mobile repair technician working"
+          className="w-80 h-64 object-cover rounded-xl"
+        />
         
-        {/* Animated Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-5 w-32 h-32 bg-secondary-500 rounded-full animate-float"></div>
-          <div className="absolute bottom-20 right-5 w-24 h-24 bg-accent-500 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute top-1/3 right-10 w-16 h-16 bg-primary-500 rounded-full animate-float" style={{ animationDelay: '4s' }}></div>
-          <div className="absolute bottom-1/3 left-8 w-20 h-20 bg-purple-500 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
-        </div>
+        {/* Decorative elements on image */}
+        <div className="absolute -top-2 -right-2 w-6 h-6 bg-secondary-500 rounded-full animate-pulse"></div>
+        <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-accent-500 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+      </div>
+      
+      {/* Floating badges */}
+      <div className="absolute -bottom-4 left-6 bg-gradient-to-r from-secondary-600 to-accent-600 text-white text-xs font-bold py-1.5 px-4 rounded-full shadow-lg animate-bounce">
+        Expert Repair
+      </div>
+    </div>
+  </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="animate-slide-up">
-            <div className="mb-6 animate-zoom-in">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
-                <span className="block animate-slide-in-left">Mobi Fast Fix</span>
-              </h1>
-              <div className="text-lg sm:text-xl md:text-2xl font-medium text-secondary-300 mb-6 animate-slide-in-right">
-                <span className="block">Expert Mobile Repair</span>
-                <span className="block text-base sm:text-lg text-gray-300 mt-2">Mumbai's Trusted Repair Center</span>
-              </div>
-            </div>
-            
-            <p className="text-base sm:text-lg text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed animate-slide-fade">
-              Professional repair services for every device with speed, reliability, and precision. 
-              <span className="block mt-2 text-secondary-300 font-medium">Same-day repairs available!</span>
-            </p>
-            
-            {/* Trust Indicators */}
-            <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-gray-300 animate-slide-fade">
-              <div className="flex items-center">
-                <Shield className="h-4 w-4 mr-2 text-secondary-400" />
-                <span>Warranty Included</span>
-              </div>
-              <div className="flex items-center">
-                <Clock className="h-4 w-4 mr-2 text-secondary-400" />
-                <span>Fast Service</span>
-              </div>
-              <div className="flex items-center">
-                <Award className="h-4 w-4 mr-2 text-secondary-400" />
-                <span>Expert Technicians</span>
-              </div>
-            </div>
-          </div>
+  {/* Animated floating particles */}
+  <div className="absolute inset-0">
+    {[...Array(20)].map((_, i) => (
+      <div
+        key={i}
+        className="absolute w-1 h-1 bg-white/30 rounded-full animate-float"
+        style={{
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+          animationDelay: `${Math.random() * 5}s`,
+          animationDuration: `${3 + Math.random() * 4}s`
+        }}
+      />
+    ))}
+  </div>
+
+  {/* Main Content */}
+  <div className="relative z-10 max-w-4xl lg:max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center lg:text-left">
+    <div className="animate-slide-up">
+      <div className="mb-6 animate-zoom-in">
+        {/* Logo/Brand Icon */}
+        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-secondary-600 to-accent-600 rounded-2xl mb-6 shadow-lg">
+          <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+          </svg>
         </div>
-      </section>
+        
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+          <span className="block animate-slide-in-left bg-gradient-to-r from-white via-secondary-100 to-white bg-clip-text text-transparent">
+            Mobi Fast Fix
+          </span>
+        </h1>
+        <div className="text-xl sm:text-2xl md:text-3xl font-medium text-secondary-300 mb-6 animate-slide-in-right">
+          <span className="block">Expert Mobile Repair</span>
+          <span className="block text-lg sm:text-xl text-gray-300 mt-3">Mumbai's Most Trusted Repair Center</span>
+        </div>
+      </div>
+      
+      <p className="text-lg sm:text-xl text-gray-200 mb-10 max-w-2xl leading-relaxed animate-slide-fade">
+        Professional repair services for every device with speed, reliability, and precision. 
+        <span className="block mt-4 text-secondary-300 font-semibold text-xl">Same-day repairs available!</span>
+      </p>
+      
+      {/* CTA Buttons */}
+      <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12 animate-slide-fade">
+        <button
+  onClick={() => navigate("/contact")}
+  className="px-8 py-4 bg-gradient-to-r from-secondary-600 to-accent-600 text-white font-semibold rounded-xl hover:from-secondary-700 hover:to-accent-700 transform hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-xl shadow-secondary-900/30"
+>
+  Book Repair Now
+</button>
+
+        <button className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl hover:bg-white/20 transform hover:-translate-y-1 transition-all duration-300 border border-white/20">
+          Call: +91 8652770399
+        </button>
+      </div>
+      
+      {/* Trust Indicators */}
+      <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-gray-300 animate-slide-fade">
+        <div className="flex items-center backdrop-blur-sm bg-white/10 px-5 py-3 rounded-xl border border-white/10">
+          <Shield className="h-5 w-5 mr-3 text-secondary-400" />
+          <span className="font-medium">Warranty Included</span>
+        </div>
+        <div className="flex items-center backdrop-blur-sm bg-white/10 px-5 py-3 rounded-xl border border-white/10">
+          <Clock className="h-5 w-5 mr-3 text-secondary-400" />
+          <span className="font-medium">Fast  Service</span>
+        </div>
+        <div className="flex items-center backdrop-blur-sm bg-white/10 px-5 py-3 rounded-xl border border-white/10">
+          <Award className="h-5 w-5 mr-3 text-secondary-400" />
+          <span className="font-medium">Expert Technicians</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Brand Intro Section */}
       

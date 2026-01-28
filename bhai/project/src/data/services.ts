@@ -69,7 +69,7 @@ export const services = [
     title: 'Battery Replacement',
     description: 'Replace old batteries for improved performance and longer battery life with certified batteries.',
     icon: Battery,
-    image: 'https://cdn.mos.cms.futurecdn.net/thZoYL33WnAUEycEgVPXsP-320-80.jpg',
+    image: 'https://www.slashgear.com/img/gallery/iphone-repairs-may-soon-be-a-lot-easier-and-cheaper-for-everyone/why-the-shift-1719598579.jpg',
     features: [
       'High-capacity batteries',
       'Extended battery life',
